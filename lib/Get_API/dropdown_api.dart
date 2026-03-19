@@ -16,7 +16,7 @@ class _DropdownAPIState extends State<DropdownAPI> {
   Future<List<DropdownModel>> getPost() async {
     try {
       final response = await http.get(
-        Uri.parse("https://jsonplaceholder.typicode.com/posts"),
+        Uri.parse("http://jsonplaceholder.typicode.com/posts"),
       );
       final body = json.decode(response.body) as List;
 
@@ -64,8 +64,8 @@ class _DropdownAPIState extends State<DropdownAPI> {
                     hint: Text("Select Value"),
                     items: snapshot.data!.map((e) {
                       return DropdownMenuItem(
-                        value: e.title.toString(),
-                        child: Text(e.title.toString()),
+                        value: e.title.toString() ,
+                        child: Text(e.title.toString() + "   " +e.id.toString()),
                       );
                     }).toList(),
                     onChanged: (value) {
